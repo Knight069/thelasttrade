@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "./Button";
@@ -62,7 +62,9 @@ export const Appbar = () => {
           className="flex items-center text-gray-900 dark:text-white space-x-3 rtl:space-x-reverse"
         >
           <img src={logobull} className="h-8" alt="Logo" />
-          <img src={lasttrade} className="h-8 max-w-full" alt="fontlogo" />
+          <div className="font-mono text-wrap dark:text-white text-3xl">
+            THE LAST TRADE
+          </div>
         </a>
 
         {/* Mobile Menu Button */}
@@ -112,14 +114,14 @@ export const Appbar = () => {
             {/* Courses Dropdown */}
             {/* <li className="relative group"> */}
             <li>
-            <button
-              // id="dropdownNavbarLink"
-              // data-dropdown-toggle="dropdownNavbar"
-              onClick={() => navigate("/courses")}
-              className="flex items-center py-2 px-3 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
-            >
-              Courses
-              {/* <svg
+              <button
+                // id="dropdownNavbarLink"
+                // data-dropdown-toggle="dropdownNavbar"
+                onClick={() => navigate("/courses")}
+                className="flex items-center py-2 px-3 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
+                Courses
+                {/* <svg
                   className="w-2.5 h-2.5 ms-2.5 transition-transform group-hover:rotate-180"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -134,9 +136,9 @@ export const Appbar = () => {
                     d="m1 1 4 4 4-4"
                   />
                 </svg> */}
-            </button>
-            {/* Dropdown menu */}
-            {/* <div
+              </button>
+              {/* Dropdown menu */}
+              {/* <div
                 id="dropdownNavbar"
                 className="absolute left-0 mt-2 hidden group-hover:block bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg w-44"
               >
@@ -182,7 +184,7 @@ export const Appbar = () => {
                   </li>
                 </ul>
               </div> */}
-            </li> 
+            </li>
             {/* Contact Us */}
             <li>
               <a
