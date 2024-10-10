@@ -135,7 +135,6 @@ export function Courses() {
                 <Button
                   label="Learn More"
                   onClick={() => handleLearnMore(course)}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
                 />
               </div>
             ))}

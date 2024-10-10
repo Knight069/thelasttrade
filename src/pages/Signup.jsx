@@ -13,10 +13,6 @@ export const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [designation, setDesignation] = useState("");
-  // const [employeecode, setEmployeecode] = useState("");
-  // const [department, setDepartment] = useState("");
-  // const [timings, setTimings] = useState("");
 
   const navigate = useNavigate();
 
@@ -39,38 +35,6 @@ export const Signup = () => {
             <InputBox
               type="text"
               onChange={(e) => {
-                setDesignation(e.target.value);
-              }}
-              placeholder="Student/CA"
-              label={"Profession"}
-            />
-            {/* <InputBox
-            type="text"
-            onChange={(e) => {
-              setDepartment(e.target.value);
-            }}
-            placeholder="tech"
-            label={"Department"}
-          /> */}
-            {/* <InputBox
-            type="text"
-            onChange={(e) => {
-              setEmployeecode(e.target.value);
-            }}
-            placeholder="14134"
-            label={"Employee Code"}
-          /> */}
-            {/* <InputBox
-            type="text"
-            onChange={(e) => {
-              setTimings(e.target.value);
-            }}
-            placeholder="8 - 10"
-            label={"Timings"}
-          /> */}
-            <InputBox
-              type="text"
-              onChange={(e) => {
                 setEmail(e.target.value);
               }}
               placeholder="kuchbhi@gmail.com"
@@ -89,15 +53,11 @@ export const Signup = () => {
               <Button
                 onClick={async () => {
                   const response = await axios.post(
-                    "https://13.127.77.225/api/v1/user/signup",
+                    "http://localhost:3000/api/v1/user/signup",
                     {
                       name,
                       email,
                       password,
-                      designation,
-                      // employeecode,
-                      // timings,
-                      // department,
                     }
                   );
                   localStorage.setItem("token", response.data.token);

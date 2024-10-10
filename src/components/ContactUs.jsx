@@ -51,7 +51,7 @@ export function ContactUs() {
             type="text"
             id="name"
             placeholder="Your Name"
-            className="w-full p-3 bg-gray-900 rounded"
+            className="w-full p-3 bg-black rounded"
             value={formData.name}
             onChange={handleChange}
           />
@@ -59,7 +59,7 @@ export function ContactUs() {
             type="email"
             id="email"
             placeholder="Your Email"
-            className="w-full p-3 bg-gray-900 rounded"
+            className="w-full p-3 bg-black rounded"
             value={formData.email}
             onChange={handleChange}
           />
@@ -67,24 +67,31 @@ export function ContactUs() {
             type="tel"
             id="phone"
             placeholder="Your Phone"
-            className="w-full p-3 bg-gray-900 rounded"
+            className="w-full p-3 bg-black rounded"
             value={formData.phone}
             onChange={handleChange}
           />
           <textarea
             id="message"
             placeholder="Your Message"
-            className="w-full p-3 bg-gray-900 rounded"
+            className="w-full p-3 bg-black rounded"
             rows="4"
             value={formData.message}
             onChange={handleChange}
           ></textarea>
-          <Button
+          {/* <button
             label="Send Message"
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded"
             onClick={handleSendMessage}
-          />
+          /> */}
+          <button
+            onClick={handleSendMessage}
+            type="button"
+            className="w-full text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+          >
+            Send Message
+          </button>
         </form>
       </div>
     </section>
