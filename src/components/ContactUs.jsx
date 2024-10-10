@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { Button } from "./Button"; // Adjust the import path based on your project structure
 import backgroundImg from "../assets/background2.jpg";
 
 export function ContactUs() {
@@ -10,6 +9,8 @@ export function ContactUs() {
     phone: "",
     message: "",
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,8 +26,10 @@ export function ContactUs() {
     const phone = document.getElementById("phone").value;
     const message = document.getElementById("message").value;
 
-    const whatsappMessage = `Hello, I'm ${name}.%0A%0AEmail: ${email}%0APhone: ${phone}%0A%0AMessage: ${message}`;
+    if (name && email && phone) {
+    const whatsappMessage = `Hello, I'm ${name} I want to learn Trading.%0A%0AMessage: ${message}`;
     const whatsappNumber = "+917258840855";
+    
 
     window.open(
       `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -34,7 +37,11 @@ export function ContactUs() {
       )}`,
       "_blank"
     );
+  }
+    setIsSubmitted(true);
   };
+
+  const isFormValid = formData.name && formData.email && formData.phone;
 
   return (
     <>
@@ -50,7 +57,7 @@ export function ContactUs() {
         <div className="container mx-auto text-center text-white">
           <h2 className="text-3xl font-extrabold mb-8">Contact Us</h2>
           <form
-            className="max-w-xl mx-auto space-y-4"
+            className="max-w-xl mx-auto space-y-4 text-black"
             onSubmit={handleSendMessage}
           >
             <input
@@ -85,12 +92,6 @@ export function ContactUs() {
               value={formData.message}
               onChange={handleChange}
             ></textarea>
-            {/* <button
-            label="Send Message"
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded"
-            onClick={handleSendMessage}
-          /> */}
             <button
               onClick={handleSendMessage}
               type="button"
@@ -100,6 +101,20 @@ export function ContactUs() {
             </button>
             {/* <Button className="bg-white" onClick={handleSendMessage} label={"Send Message"}/> */}
           </form>
+
+          {/* Show alert only if the form is submitted and isFormValid is false */}
+          {isSubmitted && !isFormValid && (
+            <div className="mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md">
+              <p className="font-semibold">
+                Please fill in all the required fields:
+              </p>
+              <ul className="list-disc list-inside">
+                {!formData.name && <li>Your Name is required.</li>}
+                {!formData.email && <li>Your Email is required.</li>}
+                {!formData.phone && <li>Your Phone number is required.</li>}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
     </>
