@@ -140,7 +140,7 @@ export function Homepage() {
 
       {/* 9 Golden Rules Section */}
       <section
-        className="relative py-12 text-center text-white"
+        className="relative py-6 text-center text-white"
         style={{
           backgroundImage: `url(${backgroundImg})`,
           backgroundSize: "cover",
@@ -178,7 +178,7 @@ export function Homepage() {
 
       {/* Services Section */}
       <section
-        className="bg-gray-900 py-12 relative"
+        className="bg-gray-900 py-12 relative bg-opacity-80 bg-blend-overlay"
         style={{
           backgroundImage: `url(${backgroundImg})`,
           backgroundSize: "cover",
@@ -186,8 +186,8 @@ export function Homepage() {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <div className="relative bg-white/30 backdrop-blur-md p-8 rounded-lg container mx-auto text-center">
-          <h2 className="text-3xl font-extrabold text-gray-800 mb-8">
+        <div className="relative  p-8 rounded-lg container mx-auto text-center">
+          <h2 className="text-3xl font-extrabold text-gray-300 mb-8">
             What Services We Offer
           </h2>
           <div className="grid justify-items-center">

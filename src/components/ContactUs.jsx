@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Button } from "./Button"; // Adjust the import path based on your project structure
-import backgroundImage from "../assets/background2.jpg";
+import backgroundImg from "../assets/background2.jpg";
 
 export function ContactUs() {
   const [formData, setFormData] = useState({
@@ -37,64 +37,72 @@ export function ContactUs() {
   };
 
   return (
-    <section className="py-12 bg-gray-800 text-white">
-      <div
-        className="container mx-auto text-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+    <>
+      <section
+        className="relative text-center text-white bg-slate-800 bg-opacity-80 bg-blend-overlay"
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <h2 className="text-3xl font-extrabold mb-8">Contact Us</h2>
-        <form
-          className="max-w-xl mx-auto space-y-4"
-          onSubmit={handleSendMessage}
-        >
-          <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
-            className="w-full p-3 bg-black rounded"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            id="email"
-            placeholder="Your Email"
-            className="w-full p-3 bg-black rounded"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Your Phone"
-            className="w-full p-3 bg-black rounded"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-          <textarea
-            id="message"
-            placeholder="Your Message"
-            className="w-full p-3 bg-black rounded"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-          ></textarea>
-          {/* <button
+        {/* <div className="absolute inset-0 bg-black bg-opacity-30 blur-sm text-white"></div> */}
+        <div className="container mx-auto text-center text-white">
+          <h2 className="text-3xl font-extrabold mb-8">Contact Us</h2>
+          <form
+            className="max-w-xl mx-auto space-y-4"
+            onSubmit={handleSendMessage}
+          >
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              className="w-full p-3 bg-white rounded"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="Your Email"
+              className="w-full p-3 bg-white rounded"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Your Phone"
+              className="w-full p-3 bg-white rounded"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            <textarea
+              id="message"
+              placeholder="Your Message"
+              className="w-full p-3 bg-white rounded"
+              rows="4"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+            {/* <button
             label="Send Message"
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded"
             onClick={handleSendMessage}
           /> */}
-          <button
-            onClick={handleSendMessage}
-            type="button"
-            className="w-full text-white bg-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
-          >
-            Send Message
-          </button>
-        </form>
-      </div>
-    </section>
+            <button
+              onClick={handleSendMessage}
+              type="button"
+              className="w-full text-black bg-blue-500 hover:bg-green-400 hover:text-white focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+            >
+              Send Message
+            </button>
+            {/* <Button className="bg-white" onClick={handleSendMessage} label={"Send Message"}/> */}
+          </form>
+        </div>
+      </section>
+    </>
   );
 };
 

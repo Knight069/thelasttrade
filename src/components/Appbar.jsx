@@ -1,4 +1,4 @@
-// /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "./Button";

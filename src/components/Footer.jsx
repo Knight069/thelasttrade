@@ -1,9 +1,17 @@
 /* eslint-disable no-unused-vars */
 import { FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import backgroundImage from "../assets/background2.jpg";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-800 text-white py-8">
+    <footer
+      className="flex-auto bg-slate-800 text-white py-8 bg-opacity-80 bg-blend-overlay"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="container mx-auto flex flex-col items-center space-y-6">
         {/* Site Name */}
         <div className="text-lg font-bold">THE LAST TRADE</div>
@@ -40,29 +48,29 @@ export function Footer() {
         </div>
 
         {/* Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 text-center text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
           {/* Column 1 */}
-          <div>
+          {/* <div>
             <a
               href="/standard-dos-donts"
               className="underline hover:text-gray-400"
             >
               Standard Do's & Don'ts
             </a>
-          </div>
+          </div> */}
           <div>
             <a href="/refund-policy" className="underline hover:text-gray-400">
               Refund Policy
             </a>
           </div>
-          <div>
+          {/* <div>
             <a
               href="/service-fee-refund-plan"
               className="underline hover:text-gray-400"
             >
               Service Fee Refund Plan
             </a>
-          </div>
+          </div> */}
           <div>
             <a href="/privacy-policy" className="underline hover:text-gray-400">
               Privacy Policy
@@ -76,13 +84,13 @@ export function Footer() {
               Terms and Conditions
             </a>
           </div>
-          <div>
+          {/* <div>
             <a href="/user-consent" className="underline hover:text-gray-400">
               User Consent
             </a>
-          </div>
+          </div> */}
           {/* Column 2 */}
-          <div>
+          {/* <div>
             <a
               href="/registered-research-analyst"
               className="underline hover:text-gray-400"
@@ -118,14 +126,14 @@ export function Footer() {
             >
               Grievance Redressal Process
             </a>
-          </div>
+          </div> */}
           <div>
             <a href="/contact" className="underline hover:text-gray-400">
               Contact Us
             </a>
           </div>
           {/* Column 3 */}
-          <div>
+          {/* <div>
             <a
               href="/packages/equity-cash-intraday"
               className="underline hover:text-gray-400"
@@ -156,7 +164,7 @@ export function Footer() {
             >
               Index Option (Combo Package)
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}

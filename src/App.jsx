@@ -9,6 +9,9 @@ import { Homepage } from "./pages/Homepage";
 import { Pricing } from "./pages/Pricing";
 import { Checkout } from "./pages/Checkout";
 import { Contact } from "./pages/Contact";
+import { PrivacyP } from "./pages/PrivacyP";
+import { Refund } from "./pages/Refund";
+import { TermsandC } from "./pages/Terms&C";
 // import { AdminDashboard } from "./components/AdminDashboard";
 
 function App() {
@@ -24,6 +27,9 @@ function App() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyP />} />
+        <Route path="/refund-policy" element={<Refund />} />
+        <Route path="/terms-and-conditions" element={<TermsandC />} />
       </Routes>
 
       {/* </BrowserRouter> */}
