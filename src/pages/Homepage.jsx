@@ -70,56 +70,68 @@ export function Homepage() {
     setIsModalOpen(true);
   };
 
-  const handleProceedToBuy = async () => {
-    if (!isAuthenticated) {
-      navigate("/signin", {
-        state: {
-          redirectTo: "/checkout",
-          course: selectedService,
-        },
-      });
-      return;
-    }
+  const handleProceedToBuy = () => {
+    const whatsappMessage = `Hello, I want to Learn Trading.`;
+    const whatsappNumber = "+917258840855";
 
-    try {
-      const { data: order } = await axios.post(
-        "http://localhost:5000/create-order",
-        {
-          amount: 499,
-          currency: "INR",
-          receipt: `receipt#${Math.random().toString(36).substring(7)}`,
-        }
-      );
-
-      const options = {
-        key: "YOUR_RAZORPAY_KEY_ID",
-        amount: order.amount,
-        currency: order.currency,
-        name: "The Last Trade",
-        description: selectedService.title,
-        image: "/logo.png",
-        order_id: order.id,
-        handler: async (response) => {
-          alert("Payment Successful");
-          navigate("/thank-you");
-        },
-        prefill: {
-          name: user.name,
-          email: user.email,
-          contact: user.phone,
-        },
-        theme: {
-          color: "#3399cc",
-        },
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-    } catch (error) {
-      console.error("Error creating Razorpay order:", error);
-      alert("Failed to initiate payment. Please try again.");
-    }
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+        whatsappMessage
+      )}`,
+      "_blank"
+    );
   };
+
+  // const handleProceedToBuy = async () => {
+  //   if (!isAuthenticated) {
+  //     navigate("/signin", {
+  //       state: {
+  //         redirectTo: "/checkout",
+  //         course: selectedService,
+  //       },
+  //     });
+  //     return;
+  //   }
+
+  //   try {
+  //     const { data: order } = await axios.post(
+  //       "http://localhost:5000/create-order",
+  //       {
+  //         amount: 499,
+  //         currency: "INR",
+  //         receipt: `receipt#${Math.random().toString(36).substring(7)}`,
+  //       }
+  //     );
+
+  //     const options = {
+  //       key: "YOUR_RAZORPAY_KEY_ID",
+  //       amount: order.amount,
+  //       currency: order.currency,
+  //       name: "The Last Trade",
+  //       description: selectedService.title,
+  //       image: "/logo.png",
+  //       order_id: order.id,
+  //       handler: async (response) => {
+  //         alert("Payment Successful");
+  //         navigate("/thank-you");
+  //       },
+  //       prefill: {
+  //         name: user.name,
+  //         email: user.email,
+  //         contact: user.phone,
+  //       },
+  //       theme: {
+  //         color: "#3399cc",
+  //       },
+  //     };
+
+  //     const rzp = new window.Razorpay(options);
+  //     rzp.open();
+  //   } catch (error) {
+  //     console.error("Error creating Razorpay order:", error);
+  //     alert("Failed to initiate payment. Please try again.");
+  //   }
+  // };
 
   return (
     <>
@@ -180,10 +192,7 @@ export function Homepage() {
           </h2>
           <div className="grid justify-items-center">
             {/* Service Card */}
-            <div
-              className="bg-white/50 bg-opacity-80 p-6 rounded-lg shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl"
-              style={{ width: "500px" }} // Set the card's width to approximately 500px
-            >
+            <div className="bg-white/50 bg-opacity-80 p-6 rounded-lg shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl max-w-full md:w-[500px]">
               <img
                 src={stockeducationImg}
                 alt="Stock Market Education"

@@ -62,13 +62,13 @@ export const Appbar = () => {
           className="flex items-center text-gray-900 dark:text-white space-x-3 rtl:space-x-reverse"
         >
           <img src={logobull} className="h-8" alt="Logo" />
-          <img src={lasttrade} className="h-8" alt="fontlogo" />
+          <img src={lasttrade} className="h-8 max-w-full" alt="fontlogo" />
         </a>
 
         {/* Mobile Menu Button */}
         <button
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center bg-white text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-cente text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
           aria-controls="navbar_dropdown"
           aria-expanded={isMenuOpen}
           onClick={handleToggleMenu}
@@ -95,10 +95,10 @@ export const Appbar = () => {
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } fixed top-16 left-0 w-full md:static md:flex md:w-auto md:space-x-8 md:mt-0 md:bg-black md:dark:bg-gray-900 md:border-0`}
+          } fixed top-16 left-0 w-full md:static md:flex md:w-auto md:space-x-8 md:mt-0 md:bg-gray md:dark:bg-gray-900 md:border-0`}
           id="navbar_dropdown"
         >
-          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:dark:bg-grey bg-black">
+          <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:dark:bg-gray-900 bg-black">
             {/* Home */}
             <li>
               <a
@@ -111,14 +111,15 @@ export const Appbar = () => {
             </li>
             {/* Courses Dropdown */}
             {/* <li className="relative group"> */}
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                onClick={() => navigate("/courses")}
-                className="flex items-center py-1 px-3 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
-              >
-                Courses
-                {/* <svg
+            <li>
+            <button
+              // id="dropdownNavbarLink"
+              // data-dropdown-toggle="dropdownNavbar"
+              onClick={() => navigate("/courses")}
+              className="flex items-center py-2 px-3 text-gray-700 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              Courses
+              {/* <svg
                   className="w-2.5 h-2.5 ms-2.5 transition-transform group-hover:rotate-180"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +134,9 @@ export const Appbar = () => {
                     d="m1 1 4 4 4-4"
                   />
                 </svg> */}
-              </button>
-              {/* Dropdown menu */}
-              {/* <div
+            </button>
+            {/* Dropdown menu */}
+            {/* <div
                 id="dropdownNavbar"
                 className="absolute left-0 mt-2 hidden group-hover:block bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg w-44"
               >
@@ -180,8 +181,8 @@ export const Appbar = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
-            </li> */}
+              </div> */}
+            </li> 
             {/* Contact Us */}
             <li>
               <a
@@ -209,10 +210,7 @@ export const Appbar = () => {
               </li>
             ) : (
               <li>
-                <Button
-                  onClick={handleSendMessage}
-                  label={"WhatsApp"}
-                />
+                <Button onClick={handleSendMessage} label={"WhatsApp"} />
               </li>
             )}
           </ul>
