@@ -16,7 +16,7 @@ export function Dashboard() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://yourapi.com/api/v1/user/courses",
+          "https://localhost:3000/api/v1/user/courses",
           
           {
             headers: {

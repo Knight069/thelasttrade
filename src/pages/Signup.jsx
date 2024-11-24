@@ -12,6 +12,7 @@ import { Footer } from "../components/Footer";
 export const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -41,6 +42,14 @@ export const Signup = () => {
               label={"Email"}
             />
             <InputBox
+              type="text"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+              placeholder="9876543210"
+              label={"Phone Number"}
+            />
+            <InputBox
               type="password"
               onChange={(e) => {
                 setPassword(e.target.value);
@@ -57,6 +66,7 @@ export const Signup = () => {
                     {
                       name,
                       email,
+                      phone,
                       password,
                     }
                   );

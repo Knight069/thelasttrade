@@ -26,6 +26,7 @@ export const Appbar = () => {
   useEffect(() => {
     // Check if the user is logged in by checking the existence of the token
     const token = localStorage.getItem("token");
+    // console.log("token", token)
     setIsLoggedIn(!!token);
   }, []);
 
@@ -35,16 +36,20 @@ export const Appbar = () => {
 
   const handleLogout = async () => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("token"); // Retrieve token from local storage
+      if (!token) throw new Error("No token found");
+
       await axios.post(
         "http://localhost:3000/api/v1/user/signout",
-        {},
+        {}, // Empty body
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `${token}`, // Send token in Authorization header
           },
         }
       );
+
+      // Clear local storage and navigate to signin
       localStorage.removeItem("token");
       setIsLoggedIn(false);
       navigate("/signin");
@@ -52,6 +57,10 @@ export const Appbar = () => {
       console.error("Error during signout:", error);
     }
   };
+
+  const handleLogin = async () => {
+    navigate("/signin")
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
@@ -212,9 +221,12 @@ export const Appbar = () => {
               </li>
             ) : (
               <li>
-                <Button onClick={handleSendMessage} label={"WhatsApp"} />
+                <Button onClick={handleLogin} label={"Signin"} />
               </li>
             )}
+            <li>
+              <Button onClick={handleSendMessage} label={"WhatsApp"} />
+            </li>
           </ul>
         </div>
       </div>
