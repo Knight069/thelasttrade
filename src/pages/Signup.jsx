@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState } from "react";
 import { BottomWarning } from "../components/BottomWarning";
 import { Button } from "../components/Button";
@@ -10,6 +11,7 @@ import { Appbar } from "../components/Appbar";
 import { Footer } from "../components/Footer";
 
 export const Signup = () => {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URl;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -62,7 +64,7 @@ export const Signup = () => {
               <Button
                 onClick={async () => {
                   const response = await axios.post(
-                    "http://localhost:3000/api/v1/user/signup",
+                    `${BACKEND_URL}/api/v1/user/signup`,
                     {
                       name,
                       email,

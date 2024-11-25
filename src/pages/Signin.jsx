@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import { useState } from "react";
@@ -10,6 +11,8 @@ import { SubHeading } from "../components/SubHeading";
 import { Appbar } from "../components/Appbar";
 import { Footer } from "../components/Footer";
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 export const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +22,7 @@ export const Signin = () => {
   const handleSignin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/signin",
+        `https://${BACKEND_URL}/api/v1/user/signin`,
         {
           email,
           password,

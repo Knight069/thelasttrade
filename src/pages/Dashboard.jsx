@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -6,17 +7,21 @@ import { Footer } from "../components/Footer";
 import { Button } from "../components/Button";
 import { Slider } from "../components/Slider";
 
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 export function Dashboard() {
   const [userCourses, setUserCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+ 
 
   useEffect(() => {
     const fetchUserCourses = async () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "https://localhost:3000/api/v1/user/courses",
+          `${BACKEND_URL}/api/v1/user/courses`,
           
           {
             headers: {

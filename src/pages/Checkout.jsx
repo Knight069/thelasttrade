@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -32,7 +33,7 @@ export function Checkout() {
 
     try {
       const { data: order } = await axios.post(
-        "http://localhost:5000/create-order",
+        `${process.env.REACT_APP_BACKEND_URL}/create-order`,
         {
           amount: parseInt(orderDetails.price.replace("₹", "")) * 100, // Convert to paise
           currency: "INR",
