@@ -7,14 +7,14 @@ import { Button } from "../components/Button";
 import { Slider } from "../components/Slider";
 
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 
 export function Dashboard() {
   const [userCourses, setUserCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
  
-
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const fetchUserCourses = async () => {
       try {

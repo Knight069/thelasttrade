@@ -10,14 +10,14 @@ import { SubHeading } from "../components/SubHeading";
 import { Appbar } from "../components/Appbar";
 import { Footer } from "../components/Footer";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
 
 export const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const handleSignin = async () => {
     try {
       const response = await axios.post(
