@@ -10,8 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { Appbar } from "../components/Appbar";
 import { Footer } from "../components/Footer";
 
-export const Signup = () => {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URl;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URl;
+
+export const Signup = () => {  
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
