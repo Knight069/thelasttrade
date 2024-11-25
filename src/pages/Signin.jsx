@@ -22,7 +22,7 @@ export const Signin = () => {
   const handleSignin = async () => {
     try {
       const response = await axios.post(
-        `https://${BACKEND_URL}/api/v1/user/signin`,
+        `${BACKEND_URL}/api/v1/user/signin`,
         {
           email,
           password,
@@ -32,11 +32,7 @@ export const Signin = () => {
 
       localStorage.setItem("token", token);
 
-      if (role === "admin") {
-        navigate("/admindashboard");
-      } else {
-        navigate("/dashboard");
-      }
+      navigate("/dashboard");
     } catch (error) {
       console.error("Error during sign-in:", error);
       setError("Invalid email or password. Please try again.");
